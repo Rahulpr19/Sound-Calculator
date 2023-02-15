@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Calculator</title>
+  <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+  <div class="container center-consoul">
+    <h1 class="text-center">Calculate Me</h1>
+    <input type="text" id="result" readonly placeholder="00"><br><br>
+    
+    <audio id="myAudio">
+      <source src="Click-one.wav" type="audio/mpeg">
+    </audio>
+    <button onclick="clearResult(), playAudio()">C</button>
+    <button onclick="addToResult('+') , playAudio()">+</button>
+    <button onclick="addToResult('-'), playAudio()">&nbsp;-</button>
+    <button onclick="addToResult('*'), playAudio()">*</button>
+    <br>
+    <button onclick="addToResult(1), playAudio()">1</button>
+    <button onclick="addToResult(2), playAudio()">2</button>
+    <button onclick="addToResult(3), playAudio()">3</button>
+    <button onclick="addToResult('/'), playAudio()">/</button>
+    <br>
+    <button onclick="addToResult(4), playAudio()">4</button>
+    <button onclick="addToResult(5), playAudio()">5</button>
+    <button onclick="addToResult(6), playAudio()" class="six">6</button>
+    <button onclick="addToResult('%'), playAudio()" class="per"><span class="percent">%</span></button>
+    <br>
+    <button onclick="addToResult(7), playAudio()">7</button>
+    <button onclick="addToResult(8), playAudio()">8</button>
+    <button onclick="addToResult(9), playAudio()">9</button>
+    <button onclick="addToResult('.'), playAudio()" class="dot">.</button>
+    <br>
+    <button onclick="addToResult(0), playAudio()">0</button>
+    <button onclick="addToResult('00'), playAudio()">00</button>
+    <button onclick="calculateResult(), playAudio()"><span class="equal-box">=</span></button>
+  </div>
+</body>
+
+<script>
+  let currentResult = '';
+    
+    function addToResult(value) {
+      currentResult += value;
+      document.getElementById('result').value = currentResult;
+    }
+    
+    function calculateResult() {
+      const result = eval(currentResult);
+      document.getElementById('result').value = result;
+      currentResult = '';
+    }
+    
+    function clearResult() {
+      currentResult = '';
+      document.getElementById('result').value = '';
+    }
+</script>
+
+<script>
+  var x = document.getElementById("myAudio");
+  
+  function playAudio() { 
+    x.play(); 
+  } 
+  
+  </script>
+
+</html>
